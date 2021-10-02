@@ -13,6 +13,7 @@ Requirement | description | Install
 -|-|-
 ✅ Bash shell script | Tested with ``WSL2/Ubuntu`` <br> ``wsl --list --verbose``   on windows | [CLI script](#cli-script)
 ✅ AZCLI | Azure CLI provides commands both for Azure AD and Azure Devops |``curl -sL https://aka.ms/InstallAzureCLIDeb \| sudo bash``
+✅ AZCLI-devops extension|  Needed for Az devops commands |``az extension add --name azure-devops``
 
 - Example is created for linux due to ease of setup ( Openssl is available out of the box in command line )
 - If you want to run the example on windows declare variables in the script as windows variables "$varname=" and ensure you can refer to Openssl commands directly from cli
@@ -55,9 +56,6 @@ CLIENTCREDENTIALS=$(az ad app create --display-name "$spnName" \
 az ad app credential reset --id $CLIENTCREDENTIALS --cert "@keys/public1.pem" --append
 spn=$(az ad sp create --id $CLIENTCREDENTIALS -o tsv --query "objectId")
 
-# If you need to remove the app (testing etc)
-#az ad app delete --id $CLIENTCREDENTIALS
-
 az role assignment create --assignee $spn \
 --role $RoleOfSPN \
 --scope $scope
@@ -65,14 +63,17 @@ az role assignment create --assignee $spn \
 ## Sign in to AzDevops and configure the org you want the ServiceConnection to be created as default
 az devops configure --defaults organization=https://dev.azure.com/$DevopsOrg
 
- az devops service-endpoint azurerm create \
+endpoint=$(az devops service-endpoint azurerm create \
 --azure-rm-service-principal-certificate-path "keys/PemWithBagAttributes.pem" \
 --azure-rm-tenant-id $Tid  \
 --azure-rm-subscription-id $Sub \
 --azure-rm-service-principal-id $spn \
 --name "$spnName" \
 --azure-rm-subscription-name "$subName" \
---project "$DevopsProject"
+--project "$DevopsProject" \
+--output tsv --query "id")
+
+echo $endpoint
 
 ## Delete the keys that were created
 rm keys -r
@@ -81,3 +82,20 @@ az devops logout
 
 ## After deployment only Azure DevOps has the private key, which prevents misuse of the certificate credentials 
 ```
+
+### Clean-up
+Remove resources If you have same session open, which you deployed the solution
+```bash
+
+az devops service-endpoint delete \
+--id "42460c3a-71c1-46df-b1dd-6802cb39016f" \
+--project "$DevopsProject"
+
+az role assignment delete --assignee $spn --role $RoleOfSPN
+az ad app delete --id $CLIENTCREDENTIALS
+
+
+```
+
+## Disclaimer
+The information in this document is provided “AS IS” with no warranties and confers no rights.
