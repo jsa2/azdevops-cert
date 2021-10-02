@@ -5,8 +5,6 @@ Creates Application and service principal with certificate credentials in Azure 
 - ⚠ Removes the certificate files locally after deployment. Only Azure Devops has the private key after the deployment has completed.
 - ✅ Azure AD itself does not know the private key(Azure AD only has the public key)
   
-  If you want to go the full nine yards on hardening there is preview option 
-
 ## Prerequisites 
 
 Requirement | description | Install
@@ -96,6 +94,9 @@ az ad app delete --id $CLIENTCREDENTIALS
 
 
 ```
+
+### Extra
+If you want to go the full nine yards on hardening the service connection, there is preview option to disable any password use on the service connection. This options is at the moment of writing this guide in preview [Application authentication method policies](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/whats-new#public-preview----application-authentication-method-policies)
 
 ## Disclaimer
 The information in this document is provided “AS IS” with no warranties and confers no rights.
