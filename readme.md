@@ -5,6 +5,17 @@ Creates Application and service principal with certificate credentials in Azure 
 - ⚠ Removes the certificate files locally after deployment. Only Azure Devops has the private key after the deployment has completed.
 - ✅ Azure AD itself does not know the private key(Azure AD only has the public key)
   
+If you are looking to do this partially in GUI I have another guide [here](https://securecloud.blog/2021/04/13/azure-devops-use-certificate-for-azure-service-connection-spn/)
+
+- [Azure Devops - Secure service connection with certificate](#azure-devops---secure-service-connection-with-certificate)
+  - [Solution description](#solution-description)
+  - [Prerequisites](#prerequisites)
+  - [CLI Script](#cli-script)
+    - [Clean-up](#clean-up)
+    - [Extra](#extra)
+  - [Disclaimer](#disclaimer)
+
+
 ## Prerequisites 
 
 Requirement | description | Install
