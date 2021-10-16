@@ -30,8 +30,13 @@ Requirement | description | Install
   - line-break is \ whereas in Powershell `
 
 ### Running in Cloud shell
-- Just like in the prerequisites, run the CLI commands in bash shell
-  access the cloud shell script [here](cloudShell.md) (The scripts are essentially the same, but with Cloud Shell you need to do forced device flow login, to ensure Az Devops picks up the credentials)
+Running in cloud shell seems not to support the existing session, or new session via Az Login, so you need to use PAT Token
+
+--- 
+
+access the cloud shell script [**here**](cloudShell.md) 
+
+---
 
 ## CLI Script
 Ensure you have set the default devops organization, and have updated the AZ CLI ``AZ CLI upgrade``
