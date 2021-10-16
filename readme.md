@@ -35,6 +35,10 @@ Running in cloud shell works just like the CLI Script below, but you have to do 
 
 ![img](img/az%20login%20again.png)
 
+If you have not done the fresh login, you would see the following error
+![img](img/az%20login%20again1.png)
+
+
 --- 
 access the cloud shell version [**here**](azCloudShell.md)
 
