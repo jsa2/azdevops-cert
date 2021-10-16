@@ -87,3 +87,4 @@ az ad app delete --id $CLIENTCREDENTIALS
 If you want to go the full nine yards on hardening the service connection, there is preview option to disable any password use on the service connection. This options is at the moment of writing this guide in preview [Application authentication method policies](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/whats-new#public-preview----application-authentication-method-policies)
 
 ## Disclaimer
+The information in this document is provided “AS IS” with no warranties and confers no rights.
