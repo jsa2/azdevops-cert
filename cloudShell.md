@@ -1,7 +1,7 @@
 ## CLI Script (Cloud Shell, BASH)
 Ensure you have set the default devops organization, and have updated the AZ CLI ``AZ CLI upgrade``
 
-Create a shortlived and scoped PAT for the project you wish to create the Service Connection for.
+Create a short-lived and scoped PAT for the project you wish to create the Service Connection for.
 
 ![img](img/1day.png)
 ![img](img/PAT.png)
