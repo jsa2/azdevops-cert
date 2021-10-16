@@ -34,7 +34,7 @@ Requirement | description | Install
 Running in cloud shell works just like the CLI Script below, but you have to do AZ LOGIN in the cloud shell, even though there is existing session
 
 --- 
-access the cloud shell version [**here**](CloudShell.md)
+access the cloud shell version [**here**](azCloudShell.md)
 
 access the cloud shell via PAT script [**here**](PATversion.md) 
 
