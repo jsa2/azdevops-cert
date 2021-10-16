@@ -84,8 +84,6 @@ az role assignment create --assignee $spn \
 --role $RoleOfSPN \
 --scope $scope
 
-## Sign in to AzDevops and configure the org you want the ServiceConnection to be created as default
-
 endpoint=$(az devops service-endpoint azurerm create \
 --azure-rm-service-principal-certificate-path "keys/PemWithBagAttributes.pem" \
 --azure-rm-tenant-id $Tid  \

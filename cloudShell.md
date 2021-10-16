@@ -51,8 +51,6 @@ az role assignment create --assignee $spn \
 --role $RoleOfSPN \
 --scope $scope
 
-## Sign in to AzDevops and configure the org you want the ServiceConnection to be created as default
-
 endpoint=$(az devops service-endpoint azurerm create \
 --azure-rm-service-principal-certificate-path "keys/PemWithBagAttributes.pem" \
 --azure-rm-tenant-id $Tid  \
@@ -67,8 +65,6 @@ echo $endpoint
 
 ## Delete the keys that were created
 rm keys -r
-
-az devops logout
 
 ## After deployment only Azure DevOps has the private key, which prevents misuse of the certificate credentials 
 ```
