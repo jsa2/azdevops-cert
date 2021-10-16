@@ -1,7 +1,7 @@
 ## CLI Script (Cloud Shell, BASH)
 Ensure you have set the default devops organization, and have updated the AZ CLI ``AZ CLI upgrade``
 
-Create a shortlived and scoped PAT for the project you wish to create the Service Connection for
+Create a shortlived and scoped PAT for the project you wish to create the Service Connection for.
 
 ![img](img/1day.png)
 ![img](img/PAT.png)
@@ -23,6 +23,9 @@ DevopsOrg=thx138
 RoleOfSPN=Contributor
 # Az devops default organization needs to be configured sucesfully before continuing running this script
 az devops configure --defaults organization=https://dev.azure.com/$DevopsOrg
+
+# Before continuing, ensure az devops project list command works (This will confirm, that you are logged in)
+az devops project show -p $DevopsProject
 
 ## Generate certificate for 2 years
 mkdir keys

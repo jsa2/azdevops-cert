@@ -52,6 +52,9 @@ RoleOfSPN=Contributor
 # Az devops default organization needs to be configured sucesfully before continuing running this script
 az devops configure --defaults organization=https://dev.azure.com/$DevopsOrg
 
+# Before continuing, ensure az devops project list command works (This will confirm, that you are logged in)
+az devops project show -p $DevopsProject
+
 ## Generate certificate for 2 years
 mkdir keys
 openssl genrsa -out keys/private1.pem 2048
