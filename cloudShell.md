@@ -1,4 +1,4 @@
-## CLI Script (Cloud Shell)
+## CLI Script (Cloud Shell, BASH)
 Ensure you have set the default devops organization, and have updated the AZ CLI ``AZ CLI upgrade``
 ```bash
 ## Secure Azure Devops Service Connection creation 
