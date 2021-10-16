@@ -6,6 +6,8 @@ Create a short-lived and scoped PAT for the project you wish to create the Servi
 ![img](img/1day.png)
 ![img](img/PAT.png)
 
+(But I can't use PAT? then check [AzDevops to Login for Cloud Shell?](https://github.com/Azure/azure-devops-cli-extension/issues/1213)
+
 ```bash
 ## Secure Azure Devops Service Connection creation 
 
