@@ -30,13 +30,14 @@ Requirement | description | Install
   - line-break is \ whereas in Powershell `
 
 ### Running in Cloud shell
-Running in cloud shell seems not to support the existing session, or new session via Az Login, so you need to use PAT Token
+
+Running in cloud shell works just like the CLI Script below, but you have to do AZ LOGIN in the cloud shell, even though there is existing session
 
 --- 
+access the cloud shell version [**here**](CloudShell.md) 
 
-access the cloud shell script [**here**](cloudShell.md) 
+access the cloud shell via PAT script [**here**](PATversion.md) 
 
----
 
 ## CLI Script
 Ensure you have set the default devops organization, and have updated the AZ CLI ``AZ CLI upgrade``

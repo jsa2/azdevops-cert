@@ -1,4 +1,10 @@
 ## CLI Script (Cloud Shell, BASH)
+Ensure you have set the default devops organization, and have updated the AZ CLI ``AZ CLI upgrade``
+
+Create a short-lived and scoped PAT for the project you wish to create the Service Connection for.
+
+![img](img/1day.png)
+![img](img/PAT.png)
 
 
 ```bash
@@ -8,9 +14,9 @@
 
 ## Runs on AZCLI, but depends on depedencies that are pre-installed often with linux. Also line-break is [\] whereas in Powershell [`] 
 
-## Set subscription context and do new login 
-az account clear
-az login
+## Set subscription context 
+## AZ CLI does not support az login for Azure Devops, so you need to have PAT token in the session
+export AZURE_DEVOPS_EXT_PAT=PATYOUCREATEDBEFORE
 subName="Microsoft Azure Sponsorship"
 az account set --subscription "$subName"
 DevopsProject=TestProj
