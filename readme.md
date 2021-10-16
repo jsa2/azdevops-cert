@@ -11,7 +11,7 @@ If you are looking to do this partially in GUI  - please see this guide [here](h
   - [Solution description](#solution-description)
   - [Prerequisites](#prerequisites)
     - [Running in Cloud shell](#running-in-cloud-shell)
-  - [CLI Script](#cli-script)
+  - [CLI Script (Locally installed)](#cli-script-locally-installed)
     - [Clean-up](#clean-up)
     - [Extra](#extra)
   - [Disclaimer](#disclaimer)
@@ -33,13 +33,15 @@ Requirement | description | Install
 
 Running in cloud shell works just like the CLI Script below, but you have to do AZ LOGIN in the cloud shell, even though there is existing session
 
+![img](img/az%20login%20again.png)
+
 --- 
 access the cloud shell version [**here**](azCloudShell.md)
 
 access the cloud shell via PAT script [**here**](PATversion.md) 
 
 
-## CLI Script
+## CLI Script (Locally installed)
 Ensure you have set the default devops organization, and have updated the AZ CLI ``AZ CLI upgrade``
 ```bash
 ## Secure Azure Devops Service Connection creation 
