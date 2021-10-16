@@ -109,7 +109,7 @@ Remove resources If you have same session open, which you deployed the solution
 ```bash
 
 az devops service-endpoint delete \
---id "42460c3a-71c1-46df-b1dd-6802cb39016f" \
+--id $endpoint \
 --project "$DevopsProject"
 
 az role assignment delete --assignee $spn --role $RoleOfSPN
