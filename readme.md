@@ -10,6 +10,7 @@ If you are looking to do this partially in GUI  - please see this guide [here](h
 - [Azure Devops - Secure service connection with certificate](#azure-devops---secure-service-connection-with-certificate)
   - [Solution description](#solution-description)
   - [Prerequisites](#prerequisites)
+    - [Running in Cloud shell](#running-in-cloud-shell)
   - [CLI Script](#cli-script)
     - [Clean-up](#clean-up)
     - [Extra](#extra)
@@ -28,6 +29,10 @@ Requirement | description | Install
 - If you want to run the example on windows declare variables in the script as windows variables "$varname=" and ensure you can refer to Openssl commands directly from cli
   - line-break is \ whereas in Powershell `
 
+### Running in Cloud shell
+- Just like in the prerequisites, run the CLI commands in bash shell
+  access the cloud shell script [here](cloudShell.md) (The scripts are essentially the same, but with Cloud Shell you need to do forced device flow login, to ensure Az Devops picks up the credentials)
+
 ## CLI Script
 Ensure you have set the default devops organization, and have updated the AZ CLI ``AZ CLI upgrade``
 ```bash
@@ -44,6 +49,8 @@ az account set --subscription "$subName"
 DevopsProject=TestProj
 DevopsOrg=thx138
 RoleOfSPN=Contributor
+# Az devops default organization needs to be configured sucesfully before continuing running this script
+az devops configure --defaults organization=https://dev.azure.com/$DevopsOrg
 
 ## Generate certificate for 2 years
 mkdir keys
@@ -70,7 +77,6 @@ az role assignment create --assignee $spn \
 --scope $scope
 
 ## Sign in to AzDevops and configure the org you want the ServiceConnection to be created as default
-az devops configure --defaults organization=https://dev.azure.com/$DevopsOrg
 
 endpoint=$(az devops service-endpoint azurerm create \
 --azure-rm-service-principal-certificate-path "keys/PemWithBagAttributes.pem" \
