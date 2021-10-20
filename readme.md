@@ -95,7 +95,7 @@ endpoint=$(az devops service-endpoint azurerm create \
 --azure-rm-service-principal-certificate-path "keys/PemWithBagAttributes.pem" \
 --azure-rm-tenant-id $Tid  \
 --azure-rm-subscription-id $Sub \
---azure-rm-service-principal-id $spn \
+--azure-rm-service-principal-id $CLIENTCREDENTIALS \
 --name "$spnName" \
 --azure-rm-subscription-name "$subName" \
 --project "$DevopsProject" \
