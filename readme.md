@@ -35,7 +35,7 @@ Running in cloud shell works just like the CLI Script below, but you have to do 
 
 ![img](img/az%20login%20again.png)
 
-If you have not done the fresh login, you would see the following error
+If you have not done the fresh login, you would see the following error (I've seen also this error on some accounts that have subscriptions on multiple tenants)
 ![img](img/az%20login%20again1.png)
 
 
