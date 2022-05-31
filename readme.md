@@ -79,13 +79,13 @@ Sub=$(az account show -o tsv --query "id" )
 Tid=$(az account show -o tsv --query "homeTenantId" )
 ## if you want below sub scope append the resource group, or resource to the scope
 scope="/subscriptions/$Sub"
-spnName="$DevopsOrg - CertConnection for sub - $Sub - $RoleOfSPN"
+spnName="$DevopsOrg - CertConnection $RANDOM for sub - $Sub - $RoleOfSPN"
 
 CLIENTCREDENTIALS=$(az ad app create --display-name "$spnName" \
 -o tsv --query "appId")
 
 az ad app credential reset --id $CLIENTCREDENTIALS --cert "@keys/public1.pem" --append
-spn=$(az ad sp create --id $CLIENTCREDENTIALS -o tsv --query "objectId")
+spn=$(az ad sp create --id $CLIENTCREDENTIALS -o tsv --query "id")
 
 az role assignment create --assignee $spn \
 --role $RoleOfSPN \
